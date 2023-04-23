@@ -1,8 +1,58 @@
-﻿@{
+﻿@model CodeInfoApi.Models.HomeModel
+
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+@*already included js,bootjs,bootcss,css*@
+
+@*inputboxes*@
+
+<body>
+    
+    <h3 class="text-dark mb-3 text-center mt-5">Record a Code Info <span class="badge bg-success">#2</span> </h3>
+    <div class="container-fluid h-100 d-flex flex-column align-items-center">
+        <div class="alert alert-success w-50" role="alert">
+            Data added successfully!!
+        </div>
+        <div class="alert alert-danger w-50" role="alert">
+            Data cannot be added as ...!!
+        </div>
+        <div class="input-group w-50 mb-2">
+            <label class="form-label text-black-50" for="name">Topic name: </label>
+            <input type="text" id="name" class="form-control w-100" />
+        </div> 
+        <div class="input-group w-50 mb-2">
+            <label class="form-label text-black-50" for="description">Description(<span class="description-char-counter text-success">2048 char</span>): </label>
+            <input type="text" id="description" class="form-control w-100" />
+        </div>
+
+    <div class="select-form w-50 mb-2">
+        <label class="form-label text-black-50">Select programming language:</label>
+            <select class="form-select form-select-lg select2" aria-label="select programming language">
+                @foreach(var item in Model.Data_type)
+                {
+                    <option value="@item.ToString()">@item.ToString()</option>
+                }
+            </select>
+        </div>
+
+    <div class="input-group w-50 mb-2">
+            <label class="form-label text-black-50" for="url">URL:</label>
+            <input type="url" id="url" class="form-control w-100" placeholder="https://" />
+        </div>
+  
+
+
+    <div class="submit-btn mt-3 w-50">
+        <button class="btn btn-outline-primary w-15 align-self-start" type="button">SAVE</button>
+    </div>
+    </div>
+
+   
+</body>
+<script type="text/css" href="~/lib/Select2/dist/css/select2.min.css"></script>
+<script type="text/javascript" href="~/lib/Select2/dist/js/select2.min.js"></script>
+<script type="text/javascript" href="~/js/home.js"></script>

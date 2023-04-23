@@ -15,7 +15,13 @@ namespace CodeInfoApi.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            HomeModel model = new HomeModel();
+            for (int i=1;i<=10;i++ )
+            {
+                model.Data_type.Add((Enums.Data_type)i);
+            }
+           
+            return View(model);
         }
 
         public IActionResult Privacy()
